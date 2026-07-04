@@ -30,8 +30,8 @@ spec:
             readOnlyRootFilesystem: true
         image: navz08/boutique-frontend:v1
         ports:
-        - containerPort: 8080
-        - envFrom:
+          - containerPort: 8080
+        envFrom:
           - configMapRef:
               name: frontend-config
         readinessProbe:
