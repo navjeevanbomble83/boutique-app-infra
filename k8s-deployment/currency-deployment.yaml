@@ -13,7 +13,6 @@ spec:
       labels:
         app: currencyservice
     spec:
-      serviceAccountName: currencyservice
       terminationGracePeriodSeconds: 5
       securityContext:
         fsGroup: 1000
@@ -31,11 +30,11 @@ spec:
           readOnlyRootFilesystem: true
         image: navz08/boutique-currency:v1
         ports:
-        - name: grpc
-          containerPort: 7000
+          - name: grpc
+            containerPort: 7000
         envFrom:
           - configMapRef:
-            name: currency-config
+              name: currency-config
         readinessProbe:
           grpc:
             port: 7000

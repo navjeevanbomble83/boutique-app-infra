@@ -13,7 +13,6 @@ spec:
       labels:
         app: productcatalogservice
     spec:
-      serviceAccountName: productcatalogservice
       terminationGracePeriodSeconds: 5
       securityContext:
         fsGroup: 1000
@@ -34,7 +33,7 @@ spec:
           - containerPort: 3550
         envFrom:
           - configMapRef:
-            name: product-catalog-config
+              name: product-catalog-config
         readinessProbe:
           grpc:
             port: 3550
